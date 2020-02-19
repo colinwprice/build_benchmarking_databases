@@ -29,7 +29,7 @@ fp.close()
         
 curr_dir = os.getcwd()
 
-final=open("merged.txt", "w")
+final=open("merged.faa2", "w")
 
 for file in os.listdir(curr_dir):
     if file.endswith(".faa"):
