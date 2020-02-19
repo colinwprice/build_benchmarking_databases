@@ -29,13 +29,11 @@ fp.close()
         
 curr_dir = os.getcwd()
 
-final=open("merged.txt", "w")
-
-for file in os.listdir(curr_dir):
-    if file.endswith(".faa"):
+for file in os.listdir(curr_dir+"/Train_NT/"):
+    if file.endswith(".fna"):
         acc = file[0:15]
         taxid = acc_to_taxid.get(str(acc))
-        final = open(str(acc)+".faa2", "w")
+        final = open(str(acc)+".fna2", "w")
         with open(file) as fp:
             line = fp.readline()
             while line:
