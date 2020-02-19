@@ -31,7 +31,7 @@ curr_dir = os.getcwd()
 
 final=open("merged.faa2", "w")
 
-for file in os.listdir(curr_dir):
+for file in os.listdir(curr_dir+"/Train_AA/"):
     if file.endswith(".faa"):
         acc = file[0:15]
         taxid = acc_to_taxid.get(str(acc))
