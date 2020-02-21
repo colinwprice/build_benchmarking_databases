@@ -35,7 +35,7 @@ for file in os.listdir(curr_dir+"/Train_AA/"):
     if file.endswith(".faa"):
         acc = file[0:15]
         taxid = acc_to_taxid.get(str(acc))
-        with open(file) as fp:
+        with open(curr_dir+"/Train_AA/"+file) as fp:
             line = fp.readline()
             while line:
                 if ">" in line:

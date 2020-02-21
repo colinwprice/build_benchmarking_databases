@@ -33,8 +33,8 @@ for file in os.listdir(curr_dir+"/Train_NT/"):
     if file.endswith(".fna"):
         acc = file[0:15]
         taxid = acc_to_taxid.get(str(acc))
-        final = open(str(acc)+".fna2", "w")
-        with open(file) as fp:
+        final = open(curr_dir+"/Train_NT/"+str(acc)+".fna2", "w")
+        with open(curr_dir+"/Train_NT/"+file) as fp:
             line = fp.readline()
             while line:
                 if ">" in line:

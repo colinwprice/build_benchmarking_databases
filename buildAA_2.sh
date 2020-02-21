@@ -16,6 +16,6 @@ cd $CWD
 chmod u+x ./kaiju/bin/kaiju-mkbwt
 chmod u+x ./kaiju/bin/kaiju-mkfmi
 echo "Building kaiju database..."
-./kaiju/bin/kaiju-mkbwt -n 5 -o proteins ./Train_AA/merged.faa2
+./kaiju/bin/kaiju-mkbwt -n 5 -o proteins merged.faa2
 echo "Building kaiju fmi..."
 ./kaiju/bin/kaiju-mkfmi proteins
