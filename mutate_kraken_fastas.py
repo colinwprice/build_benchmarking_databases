@@ -36,6 +36,7 @@ for file in os.listdir(curr_dir+"/Train_NT/"):
         taxid = acc_to_taxid.get(str(acc))
         final = open(curr_dir+"/Train_NT/"+str(acc)+".fna2", "w")
         with open(curr_dir+"/Train_NT/"+file) as fp:
+<<<<<<< HEAD
             line = fp.readline()
             while line:
                 if ">" in line:
@@ -69,6 +70,8 @@ for file in os.listdir(curr_dir+"/Train_AA/"):
         taxid = acc_to_taxid.get(str(acc))
         final = open(curr_dir+"/Train_AA/"+str(acc)+".faa2", "w")
         with open(curr_dir+"/Train_AA/"+file) as fp:
+=======
+>>>>>>> ffdc66ff7395e4dfc5718b28d011d4098bdb3701
             line = fp.readline()
             while line:
                 if ">" in line:

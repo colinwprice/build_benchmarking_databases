@@ -27,7 +27,7 @@ echo "Cleaning kraken2 NT database..."
 #./kraken2-build --download-taxonomy --db custom_db_CD
 #cd $CWD
 #echo "Adding .fna files to CD library..."
-#for f in Train_CD/*.fna; do
+#for f in Train_CD/*.fna2; do
 #    ./kraken2-build --add-to-library $f --db custom_db_CD
 #done
 #echo "Building kraken2 CD database..."

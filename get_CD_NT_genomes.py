@@ -48,8 +48,14 @@ with open('all_path_list_NT.txt', 'w') as file:
 
 import shutil
 import os
-list_of_paths = []
+
 curr_dir = os.getcwd()
+
+os.chdir(curr_dir)
+
+# =============================================================================
+list_of_paths = []
+
 #1. read in all of the paths that I need to a list. Read in all accessions too
 filepath = "all_path_list_CD.txt"
 with open(filepath) as fp:
@@ -79,32 +85,33 @@ if not os.listdir(curr_dir+"/Train_CD/"): #only do if this is empty
                         curr_dir+"/Train_CD/")
 else:
     print("Make sure the target folder Train_CD is empty")
-
-
-
-#4. Repeat for NT
-list_of_paths = []
-os.chdir(curr_dir)
-
-filepath = "all_path_list_NT.txt"
-with open(filepath) as fp:
-    line = fp.readline().strip().split()
+# =============================================================================
     
-    while line:
-        path = line[0]
-        list_of_paths.append(path)
-        line = fp.readline().strip().split()
-
-if not os.path.isdir("Train_NT"):
-    os.mkdir("Train_NT")      
-
-if not os.listdir(curr_dir+"/Train_NT/"): #only do if this is empty
-    for path in list_of_paths:
-        os.chdir("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path)
-        fna = [f for f in os.listdir("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path) if f.endswith('.fna')]
-        if len(fna) > 0:
-            shutil.copy("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path+fna[0], \
-                        curr_dir+"/Train_NT/")
-else:
-    print("Make sure the target folder Train_NT is empty")
-
+    
+# =============================================================================
+##4. Repeat for NT
+#list_of_paths = []
+#os.chdir(curr_dir)
+#
+#filepath = "all_path_list_NT.txt"
+#with open(filepath) as fp:
+#    line = fp.readline().strip().split()
+#    
+#    while line:
+#        path = line[0]
+#        list_of_paths.append(path)
+#        line = fp.readline().strip().split()
+#
+#if not os.path.isdir("Train_NT"):
+#    os.mkdir("Train_NT")      
+#
+#if not os.listdir(curr_dir+"/Train_NT/"): #only do if this is empty
+#    for path in list_of_paths:
+#        os.chdir("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path)
+#        fna = [f for f in os.listdir("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path) if f.endswith('.fna')]
+#        if len(fna) > 0:
+#            shutil.copy("/project/biocomplexity/fungcat/genomes/Genomes_NT"+path+fna[0], \
+#                        curr_dir+"/Train_NT/")
+#else:
+#    print("Make sure the target folder Train_NT is empty")
+# =============================================================================
