@@ -29,12 +29,46 @@ fp.close()
         
 curr_dir = os.getcwd()
 
+'''
 for file in os.listdir(curr_dir+"/Train_NT/"):
     if file.endswith(".fna"):
         acc = file[0:15]
         taxid = acc_to_taxid.get(str(acc))
-        final = open(str(acc)+".fna2", "w")
-        with open(file) as fp:
+        final = open(curr_dir+"/Train_NT/"+str(acc)+".fna2", "w")
+        with open(curr_dir+"/Train_NT/"+file) as fp:
+            line = fp.readline()
+            while line:
+                if ">" in line:
+                    final.write(">"+str(acc)+"|kraken:taxid|"+str(taxid)+"\n")
+                else:
+                    final.write(line)
+                line = fp.readline()
+        final.close()
+'''
+
+for file in os.listdir(curr_dir+"/Train_CD/"):
+    if file.endswith(".fna"):
+        acc = file[0:15]
+        taxid = acc_to_taxid.get(str(acc))
+        final = open(curr_dir+"/Train_CD/"+str(acc)+".fna2", "w")
+        with open(curr_dir+"/Train_CD/"+file) as fp:
+            line = fp.readline()
+            while line:
+                if ">" in line:
+                    final.write(">"+str(acc)+"|kraken:taxid|"+str(taxid)+"\n")
+                else:
+                    final.write(line)
+                line = fp.readline()
+        final.close()
+
+
+
+for file in os.listdir(curr_dir+"/Train_AA/"):
+    if file.endswith(".faa"):
+        acc = file[0:15]
+        taxid = acc_to_taxid.get(str(acc))
+        final = open(curr_dir+"/Train_AA/"+str(acc)+".faa2", "w")
+        with open(curr_dir+"/Train_AA/"+file) as fp:
             line = fp.readline()
             while line:
                 if ">" in line:
